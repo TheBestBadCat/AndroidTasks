@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Korneev App</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="start_without_config_changes_activity">start without config changes activity</string>
+    <string name="start_with_config_changes_activity">start with config changes activity</string>
+    <string name="login">Login</string>
+    <string name="enter_login">enter login</string>
+    <string name="enter_password">enter password</string>
+    <string name="start_save_state">start save state</string>
+    <string name="start_view_model_fragment">start view model fragment</string>
+    <string name="start_shared_preferences">start shared preferences</string>
+    <string name="start_database">start database</string>
+    <string name="start_file">start file</string>
 </resources>

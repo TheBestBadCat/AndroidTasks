@@ -6,12 +6,12 @@ import com.stanislavkorneev.korneevapp.domain.entities.LoanRequest
 
 interface LoanRepository {
 
-    fun createLoan(request: LoanRequest) : Loan
+    suspend fun createLoan(request: LoanRequest) : Loan
 
-    fun getLoan(id: Int) : Loan
+    suspend fun getLoan(id: Int) : Loan
 
-    fun getAllLoans() : List<Loan>
+    suspend fun getAllLoans() : List<Loan>
 
-    fun getLoansConditions() : LoanConditions
+    suspend fun getLoansConditions() : LoanConditions
 
 }
