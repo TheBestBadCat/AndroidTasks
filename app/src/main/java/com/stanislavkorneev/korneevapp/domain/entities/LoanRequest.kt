@@ -1,7 +1,7 @@
 package com.stanislavkorneev.korneevapp.domain.entities
 
 data class LoanRequest (
-    val amount: Double,
+    val amount: Int,
     val firstName: String,
     val lastName: String,
     val percent: Double,

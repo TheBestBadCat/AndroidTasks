@@ -1,21 +1,32 @@
 package com.stanislavkorneev.korneevapp.data.api
 
-import com.stanislavkorneev.korneevapp.domain.entities.Auth
-import com.stanislavkorneev.korneevapp.domain.entities.User
-import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import com.stanislavkorneev.korneevapp.domain.entities.*
+import retrofit2.http.*
 
 interface UserApi {
 
     @POST("/login")
-    fun login(
-        @Body auth: Auth
-    ) : Call<String>
+    suspend fun login(@Body auth: Auth): String
 
     @POST("/registration")
-    fun registration(
-        @Body auth: Auth
-    ) : Call<User>
+    suspend fun registration(@Body auth: Auth): User
+
+    @POST("/loans")
+    suspend fun createLoan(
+        @Header("Authorization") token: String,
+        @Body loanRequest: LoanRequest
+    ): Loan
+
+    @GET("/loans/{id}")
+    suspend fun getLoan(
+        @Header("Authorization") token: String,
+        @Path("id") loanId: Int
+    ): Loan
+
+    @GET("/loans/all")
+    suspend fun getLoansList(@Header("Authorization") token: String): List<Loan>
+
+    @GET("/loans/conditions")
+    suspend fun getLoanConditions(@Header("Authorization") token: String): LoanConditions
 
 }

@@ -1,22 +1,26 @@
 <resources>
-    <string name="app_name">Korneev App</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="start_without_config_changes_activity">start without config changes activity</string>
-    <string name="start_with_config_changes_activity">start with config changes activity</string>
-    <string name="login">Login</string>
-    <string name="enter_login">enter login</string>
-    <string name="enter_password">enter password</string>
-    <string name="start_save_state">start save state</string>
-    <string name="start_view_model_fragment">start view model fragment</string>
-    <string name="start_shared_preferences">start shared preferences</string>
-    <string name="start_database">start database</string>
-    <string name="start_file">start file</string>
+    <string name="app_name">Займы</string>
+
+    <string name="menu_home">Главная</string>
+    <string name="menu_loan">Займы</string>
+    <string name="menu_profile">Профиль</string>
+    <string name="menu_refresh">Обновить</string>
+    <string name="menu_back">Закрыть детализацию</string>
+
+    <string name="create_loan_button">Отправить заявку</string>
+    <string name="first_name_field">Введите имя</string>
+    <string name="last_name_field">Введите фамилию</string>
+    <string name="phone_field">Введите номер телефона</string>
+
+    <string name="loan_info_amount">Сумма займа: </string>
+    <string name="loan_info_percent">Процентная ставка: </string>
+    <string name="loan_info_period">Срок: </string>
+    <string name="loan_info_date">Дата: </string>
+    <string name="loan_info_phone">Номер телефона: </string>
+    <string name="loan_info_first_name">Имя: </string>
+    <string name="loan_info_last_name">Фамилия: </string>
+    <string name="loan_info_state">Статус: </string>
+
+    <string name="auth_text">Войдите или зарегистрируйтесь</string>
+
 </resources>

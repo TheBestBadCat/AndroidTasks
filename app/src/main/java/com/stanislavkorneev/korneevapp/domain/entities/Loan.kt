@@ -1,7 +1,7 @@
 package com.stanislavkorneev.korneevapp.domain.entities
 
 data class Loan(
-    val amount: Double,
+    val amount: Int,
     val date: String,
     val firstName: String,
     val id: Int,
@@ -15,5 +15,5 @@ data class Loan(
 enum class LoanState {
     APPROVED,
     REGISTERED,
-    REJECTED
+    REJECTED;
 }
