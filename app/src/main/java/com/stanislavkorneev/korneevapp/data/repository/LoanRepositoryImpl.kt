@@ -1,14 +1,14 @@
 package com.stanislavkorneev.korneevapp.data.repository
 
 import com.stanislavkorneev.korneevapp.data.api.ApiService
-import com.stanislavkorneev.korneevapp.data.api.UserApi
+import com.stanislavkorneev.korneevapp.data.api.LoanApi
 import com.stanislavkorneev.korneevapp.domain.entities.*
-import com.stanislavkorneev.korneevapp.domain.repository.AuthRepository
+import com.stanislavkorneev.korneevapp.domain.repository.LoanRepository
 
-class AuthRepositoryImpl : AuthRepository {
+class LoanRepositoryImpl : LoanRepository {
 
     private val api = ApiService()
-    private val retrofit = api.retrofit.create(UserApi::class.java)
+    private val retrofit = api.retrofit.create(LoanApi::class.java)
 
     override suspend fun login(auth: Auth): String =
         retrofit.login(auth)

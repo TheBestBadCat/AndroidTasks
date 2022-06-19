@@ -2,7 +2,7 @@ package com.stanislavkorneev.korneevapp.domain.repository
 
 import com.stanislavkorneev.korneevapp.domain.entities.*
 
-interface AuthRepository {
+interface LoanRepository {
 
     suspend fun login(auth: Auth): String
 

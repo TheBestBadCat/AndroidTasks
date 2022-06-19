@@ -4,7 +4,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
-
 class ApiService {
 
     val retrofit = Retrofit.Builder()
@@ -16,5 +15,4 @@ class ApiService {
     companion object {
         private const val BASE_URL = "https://shiftlab.cft.ru:7777/"
     }
-
 }

@@ -1,178 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/textView"
-        android:id="@+id/loan_info_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/loan_info_title"
-        android:textAlignment="center"/>
+        android:orientation="vertical">
 
-    <TableRow
-        android:id="@+id/first_name_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <TableRow
+            android:id="@+id/first_name_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/first_name_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_first_name" />
+
+            <TextView
+                android:id="@+id/first_name_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/last_name_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/last_name_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_last_name" />
+
+            <TextView
+                android:id="@+id/last_name_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/phone_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/phone_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_phone" />
+
+            <TextView
+                android:id="@+id/phone_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/date_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/date_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_date" />
+
+            <TextView
+                android:id="@+id/date_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/amount_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/amount_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_amount" />
+
+            <TextView
+                android:id="@+id/amount_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/percent_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/percent_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_percent" />
+
+            <TextView
+                android:id="@+id/percent_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/period_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/period_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_period" />
+
+            <TextView
+                android:id="@+id/period_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/state_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/state_title"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_state" />
+
+            <TextView
+                android:id="@+id/state_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
 
         <TextView
-            android:id="@+id/first_name_title"
+            android:id="@+id/how_get_loan_guide_text"
             style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/loan_info_first_name" />
+            android:text="@string/how_get_loan_guide" />
 
-        <TextView
-            android:id="@+id/first_name_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/last_name_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/last_name_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_last_name" />
-
-        <TextView
-            android:id="@+id/last_name_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/phone_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/phone_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_phone" />
-
-        <TextView
-            android:id="@+id/phone_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/date_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/date_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_date" />
-
-        <TextView
-            android:id="@+id/date_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/amount_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/amount_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_amount" />
-
-        <TextView
-            android:id="@+id/amount_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/percent_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/percent_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_percent" />
-
-        <TextView
-            android:id="@+id/percent_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/period_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/period_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_period" />
-
-        <TextView
-            android:id="@+id/period_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/state_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/state_title"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loan_info_state" />
-
-        <TextView
-            android:id="@+id/state_text"
-            style="@style/loanInfoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </TableRow>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

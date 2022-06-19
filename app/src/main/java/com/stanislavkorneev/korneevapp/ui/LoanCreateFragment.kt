@@ -44,16 +44,13 @@ class LoanCreateFragment: Fragment() {
     }
 
     private fun initListeners() {
-
         prefs.tokenPreferences?.let { token ->
             viewModel.getLoanConditions(token)
         }
 
         viewModel.conditions.observe(viewLifecycleOwner) { conditions ->
             loanConditions = conditions
-            binding.amountLoanConditionText.text = loanConditions.maxAmount.toString()
-            binding.percentLoanConditionText.text = loanConditions.percent.toString()
-            binding.periodLoanConditionText.text = loanConditions.period.toString()
+            initConditions()
         }
 
         binding.createNewLoanButton.setOnClickListener {
@@ -80,5 +77,14 @@ class LoanCreateFragment: Fragment() {
             if (exceptionSimpleName.isNotEmpty())
                 (context as MainActivity).showExceptionMessage(exceptionSimpleName)
         }
+    }
+
+    private fun initConditions() {
+        val amount = "${loanConditions.maxAmount} ₽"
+        val percent = "${loanConditions.percent} %"
+        val period = "${loanConditions.period} дней"
+        binding.amountLoanConditionText.text = amount
+        binding.percentLoanConditionText.text = percent
+        binding.periodLoanConditionText.text = period
     }
 }

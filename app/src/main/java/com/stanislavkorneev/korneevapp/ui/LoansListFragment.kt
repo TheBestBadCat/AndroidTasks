@@ -2,7 +2,6 @@ package com.stanislavkorneev.korneevapp.ui
 
 import android.os.Bundle
 import android.view.*
-
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.stanislavkorneev.korneevapp.R
@@ -41,7 +40,6 @@ class LoansListFragment : Fragment() {
         initListeners()
         initExceptionObserver()
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.top_menu_refresh, menu)

@@ -49,13 +49,67 @@ class MainActivity : AppCompatActivity() {
             }.show()
     }
 
+    fun showLoginSuccessDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.login_success_title)
+            .setMessage(R.string.login_success_message)
+            .setPositiveButton(R.string.dialog_positive_button) { dialog, _ ->
+                dialog.dismiss()
+                showHomeGuideDialog()
+            }.show()
+    }
+
     fun showCreateLoanSuccessDialog() {
         AlertDialog.Builder(this)
             .setTitle(R.string.create_loan_success_title)
             .setMessage(R.string.create_loan_success_message)
-            .setNeutralButton(R.string.create_loan_success_button) { dialog, _ ->
+            .setPositiveButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
-                changeFragment(LoanInfoFragment.newInstance())
+            }.show()
+    }
+
+    fun showLogoutDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.profile_logout_title)
+            .setMessage(R.string.profile_logout_message)
+            .setPositiveButton(R.string.profile_logout_positive_button) { dialog, _ ->
+                dialog.dismiss()
+                logout()
+            }
+            .setNegativeButton(R.string.profile_logout_negative_button) { dialog, _ ->
+                dialog.dismiss()
+            }.show()
+    }
+
+    private fun showHomeGuideDialog() {
+        AlertDialog.Builder(this)
+            .setIcon(R.drawable.ic_baseline_home_24)
+            .setTitle(R.string.home_guide_title)
+            .setMessage(R.string.home_guide_message)
+            .setPositiveButton(R.string.dialog_positive_button) { dialog, _ ->
+                dialog.dismiss()
+                showLoanGuideDialog()
+            }.show()
+    }
+
+    private fun showLoanGuideDialog() {
+        AlertDialog.Builder(this)
+            .setIcon(R.drawable.ic_baseline_credit_card_24)
+            .setTitle(R.string.loan_guide_title)
+            .setMessage(R.string.loan_guide_message)
+            .setPositiveButton(R.string.dialog_positive_button) { dialog, _ ->
+                dialog.dismiss()
+                showProfileGuideDialog()
+            }.show()
+    }
+
+    private fun showProfileGuideDialog() {
+        AlertDialog.Builder(this)
+            .setIcon(R.drawable.ic_baseline_person_24)
+            .setTitle(R.string.profile_guide_title)
+            .setMessage(R.string.profile_guide_message)
+            .setPositiveButton(R.string.dialog_neutral_button) { dialog, _ ->
+                dialog.dismiss()
             }.show()
     }
 
@@ -80,7 +134,7 @@ class MainActivity : AppCompatActivity() {
     private fun showHttpExceptionDialog() {
         AlertDialog.Builder(this)
             .setTitle(R.string.http_exception_title)
-            .setMessage(R.string.host_exception_message)
+            .setMessage(R.string.http_exception_message)
             .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
@@ -104,6 +158,11 @@ class MainActivity : AppCompatActivity() {
             changeFragment(AuthFragment.newInstance())
     }
 
+    private fun logout() {
+        prefs.tokenPreferences = ""
+        setHomeFragment()
+    }
+
     private fun initNavigationBarListener() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -122,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                     if (isLoginUser()) {
                         return@setOnItemSelectedListener false
                     }
-                    //changeFragment(ProfileFragment.newInstance())
+                    changeFragment(ProfileFragment.newInstance())
                     return@setOnItemSelectedListener true
                 }
             }

@@ -54,11 +54,11 @@ class AuthFragment: Fragment() {
             viewModel.token.observe(viewLifecycleOwner) { token ->
                 if (token.isNotEmpty()) {
                     prefs.tokenPreferences = token
-                    (context as MainActivity).changeFragment(LoanCreateFragment.newInstance())
+                    (context as MainActivity).showLoginSuccessDialog()
+                    (context as MainActivity).changeFragment(LoansListFragment.newInstance())
                 }
             }
         }
-
 
         viewModel.exception.observe(viewLifecycleOwner) { exceptionSimpleName ->
             (context as MainActivity).showExceptionMessage(exceptionSimpleName)

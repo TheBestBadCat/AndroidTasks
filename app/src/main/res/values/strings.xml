@@ -2,12 +2,15 @@
     <string name="app_name">Займы</string>
 
     <string name="loan_list_divider">Разделитель</string>
+    <string name="profile_button">Инструкция</string>
+    <string name="profile_title">Способы получения денежных средств:</string>
 
     <string name="menu_home">Главная</string>
     <string name="menu_loan">Займы</string>
     <string name="menu_profile">Профиль</string>
     <string name="menu_refresh">Обновить</string>
     <string name="menu_back">Закрыть детализацию</string>
+    <string name="menu_logout">Сменить пользователя</string>
 
     <string name="create_loan_button">Отправить заявку</string>
     <string name="first_name_field">Введите имя</string>
@@ -29,5 +32,12 @@
     <string name="auth_login_button_text">Вход</string>
     <string name="auth_login_field">Введите логин</string>
     <string name="auth_password_field">Введите пароль</string>
+
+    <string name="how_get_loan_guide">
+        Для получения суммы займа в виде наличных денежных средств обратитесь в одно из отделений банков-партнеров,
+        при себе необходимо иметь паспорт и телефон для получения кода подверждения операции.\n\n
+        Для получения суммы займа безналично на банковскую карту необходимо заполнить электронное заявление с указанием номера карты и телефона к которому она привязана.
+        После проверки заявления сотрудником банка и подтверждения операции по SMS денежные средства будут зачислены на ваш банковский счет.
+    </string>
 
 </resources>

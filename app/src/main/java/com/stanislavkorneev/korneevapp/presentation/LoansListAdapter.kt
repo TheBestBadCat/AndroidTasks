@@ -33,7 +33,7 @@ class LoansListAdapter(private val loanOnClick: (Int) -> Unit) :
 
         fun bind(item: Loan) {
             val simpleLoanInfo = "Сумма: ${item.amount}₽ срок: ${item.period} дней"
-            val percentInfo = "Прцентная ставка: ${item.percent}%"
+            val percentInfo = "Процентная ставка: ${item.percent}%"
             val dateLoanInfo = "Дата: ${item.date}"
             binding.simpleLoanText.text = simpleLoanInfo
             binding.loanPercentText.text = percentInfo

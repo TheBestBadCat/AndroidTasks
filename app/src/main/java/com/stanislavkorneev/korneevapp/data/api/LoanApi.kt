@@ -3,7 +3,7 @@ package com.stanislavkorneev.korneevapp.data.api
 import com.stanislavkorneev.korneevapp.domain.entities.*
 import retrofit2.http.*
 
-interface UserApi {
+interface LoanApi {
 
     @POST("/login")
     suspend fun login(@Body auth: Auth): String

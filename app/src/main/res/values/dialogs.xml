@@ -7,10 +7,40 @@
         Осуществите вход с данными указанными при регистрации для дальнейшей работы с приложением
     </string>
 
-    <string name="create_loan_success_title">Заявка успешно оформлена</string>
+    <string name="login_success_title">Инструкция</string>
+    <string name="login_success_message">
+        Пожалуйста, ознакомтесь с возможностями приложения перед началом работы
+    </string>
+    <string name="dialog_positive_button">Далее</string>
+
+    <string name="home_guide_title">Главный экран</string>
+    <string name="home_guide_message">
+        На данном экране доступен просмотр истории оформленных займов.\n\n
+        Для просмотра детальной информации о займе просто выберите его из списка.
+    </string>
+
+    <string name="loan_guide_title">Оформление займа</string>
+    <string name="loan_guide_message">
+        Создание заявки на займ состоит из 3-х шагов:\n\n
+        Ознакомления с текущими условиями займа: максимальная сумма, процентная ставка и срок\n\n
+        Заполнение данных о заемщике: имя, фамилия и номер телефона\n\n
+        Отправка заявки\n\n
+        Для успешного оформления займа необходимо корректно заполнить все данные
+    </string>
+
+    <string name="profile_guide_title">Профиль</string>
+    <string name="profile_guide_message">
+        На данном экране доступен просмотр инструкций по получению займов и возможность смены пользователя
+    </string>
+
+    <string name="profile_logout_title">Смена пользователя</string>
+    <string name="profile_logout_message">Вы действительно хотите сменить текущего пользователя и перейти к процедуре авторазиации?</string>
+    <string name="profile_logout_positive_button">Да</string>
+    <string name="profile_logout_negative_button">Нет</string>
+
+    <string name="create_loan_success_title">Займ успешно оформлен</string>
     <string name="create_loan_success_message">
-        Ознакомтесь с инструкцией и выберите предпочтительный способ получения займа</string>
-    <string name="create_loan_success_button">Посмотреть инструкцию</string>
+        Перейдите на главный экран для просмотра истории и подробной информации об уже созданных займах или оформите новый</string>
 
     <string name="input_exception_title">Недостаточно данных</string>
     <string name="input_exception_message">
@@ -27,6 +57,5 @@
     <string name="unknown_exception_title">Неизвестная ошибка</string>
     <string name="unknown_exception_message">
         Извините, но на данный момент причина возникновения данной ошибки неизвестна</string>
-
 
 </resources>

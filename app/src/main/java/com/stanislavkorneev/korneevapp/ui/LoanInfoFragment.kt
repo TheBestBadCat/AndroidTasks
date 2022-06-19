@@ -47,13 +47,16 @@ class LoanInfoFragment: Fragment() {
         }
 
         viewModel.loan.observe(viewLifecycleOwner) { loan ->
+            val amount = "${loan.amount}₽"
+            val percent = "${loan.percent}%"
+            val period = "${loan.period} дней"
             binding.firstNameText.text = loan.firstName
             binding.lastNameText.text = loan.lastName
             binding.phoneText.text = loan.phoneNumber
             binding.dateText.text = loan.date
-            binding.amountText.text = loan.amount.toString()
-            binding.percentText.text = loan.percent.toString()
-            binding.periodText.text = loan.period.toString()
+            binding.amountText.text = amount
+            binding.percentText.text = percent
+            binding.periodText.text = period
             binding.stateText.text = when (loan.state) {
                 LoanState.APPROVED -> "Одобрен"
                 LoanState.REJECTED -> "Отклонен"
