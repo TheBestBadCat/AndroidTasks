@@ -56,7 +56,7 @@ class LoanCreateFragment: Fragment() {
             binding.periodLoanConditionText.text = loanConditions.period.toString()
         }
 
-        binding.createNewLoan.setOnClickListener {
+        binding.createNewLoanButton.setOnClickListener {
             prefs.tokenPreferences?.let { token ->
                 viewModel.createLoan(
                     token = token,
@@ -69,7 +69,7 @@ class LoanCreateFragment: Fragment() {
                 )
             }
 
-            viewModel.loan.observe(viewLifecycleOwner) { loan ->
+            viewModel.loan.observe(viewLifecycleOwner) {
                 (context as MainActivity).showCreateLoanSuccessDialog()
             }
         }

@@ -7,47 +7,52 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/auth_title"
+        style="@style/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/auth_text"
-        android:textSize="20sp" />
+        android:textAlignment="center"
+        android:text="@string/auth_title" />
 
     <EditText
-        android:id="@+id/login"
+        android:id="@+id/login_edit_text"
+        style="@style/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Введите логин"
-        android:inputType="text" />
+        android:hint="@string/auth_login_field"
+        android:autofillHints="@string/auth_login_field"/>
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_edit_text"
+        style="@style/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Введите пароль" />
+        android:hint="@string/auth_password_field"
+        android:autofillHints="@string/auth_password_field"
+        android:inputType="textPassword"/>
 
     <LinearLayout
+        android:id="@+id/auth_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/login_button"
+            style="@style/button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:layout_weight="1"
-            android:text="Войти" />
+            android:text="@string/auth_login_button_text" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/registrationButton"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/registration_button"
+            style="@style/button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:layout_weight="1"
-            android:text="Зарегистрироваться" />
+            android:text="@string/auth_registration_button_text" />
 
     </LinearLayout>
 

@@ -32,13 +32,16 @@ class LoansListAdapter(private val loanOnClick: (Int) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Loan) {
-
-            binding.textLoanAmount.text = item.amount.toString()
-            binding.textLoanPercent.text = item.percent.toString()
-            binding.textLoanStatus.text = when (item.state) {
-                LoanState.APPROVED -> "Одобрена"
-                LoanState.REJECTED -> "Отклонена"
-                LoanState.REGISTERED -> "Зарегистрирована"
+            val simpleLoanInfo = "Сумма: ${item.amount}₽ срок: ${item.period} дней"
+            val percentInfo = "Прцентная ставка: ${item.percent}%"
+            val dateLoanInfo = "Дата: ${item.date}"
+            binding.simpleLoanText.text = simpleLoanInfo
+            binding.loanPercentText.text = percentInfo
+            binding.loanDateText.text = dateLoanInfo
+            binding.loanStatusText.text = when (item.state) {
+                LoanState.APPROVED -> "Статус: Одобрен"
+                LoanState.REJECTED -> "Статус: Отклонен"
+                LoanState.REGISTERED -> "Статус: Зарегистрирован"
             }
 
             binding.loanCard.setOnClickListener {

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.registration_success_title)
             .setMessage(R.string.registration_success_message)
-            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.create_loan_success_title)
             .setMessage(R.string.create_loan_success_message)
-            .setNeutralButton(R.string.create_loan_success_button) { dialog, id ->
+            .setNeutralButton(R.string.create_loan_success_button) { dialog, _ ->
                 dialog.dismiss()
                 changeFragment(LoanInfoFragment.newInstance())
             }.show()
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.input_exception_title)
             .setMessage(R.string.input_exception_message)
-            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.host_exception_title)
             .setMessage(R.string.host_exception_message)
-            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.http_exception_title)
             .setMessage(R.string.host_exception_message)
-            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
@@ -90,10 +90,12 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.unknown_exception_title)
             .setMessage(R.string.input_exception_message)
-            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
+
+    private fun isLoginUser() = prefs.tokenPreferences.isNullOrEmpty()
 
     private fun setHomeFragment() {
         if (!isLoginUser())
@@ -127,6 +129,4 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener false
         }
     }
-
-    private fun isLoginUser() = prefs.tokenPreferences.isNullOrEmpty()
 }

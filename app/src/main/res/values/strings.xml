@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Займы</string>
 
+    <string name="loan_list_divider">Разделитель</string>
+
     <string name="menu_home">Главная</string>
     <string name="menu_loan">Займы</string>
     <string name="menu_profile">Профиль</string>
@@ -12,15 +14,20 @@
     <string name="last_name_field">Введите фамилию</string>
     <string name="phone_field">Введите номер телефона</string>
 
-    <string name="loan_info_amount">Сумма займа: </string>
-    <string name="loan_info_percent">Процентная ставка: </string>
-    <string name="loan_info_period">Срок: </string>
-    <string name="loan_info_date">Дата: </string>
-    <string name="loan_info_phone">Номер телефона: </string>
-    <string name="loan_info_first_name">Имя: </string>
-    <string name="loan_info_last_name">Фамилия: </string>
-    <string name="loan_info_state">Статус: </string>
+    <string name="loan_info_title">Информация о займе:</string>
+    <string name="loan_info_amount">Сумма:</string>
+    <string name="loan_info_percent">Процентная ставка:</string>
+    <string name="loan_info_period">Срок:</string>
+    <string name="loan_info_date">Дата:</string>
+    <string name="loan_info_phone">Номер телефона:</string>
+    <string name="loan_info_first_name">Имя:</string>
+    <string name="loan_info_last_name">Фамилия:</string>
+    <string name="loan_info_state">Статус:</string>
 
-    <string name="auth_text">Войдите или зарегистрируйтесь</string>
+    <string name="auth_title">Войдите или зарегистрируйтесь:</string>
+    <string name="auth_registration_button_text">Регистрация</string>
+    <string name="auth_login_button_text">Вход</string>
+    <string name="auth_login_field">Введите логин</string>
+    <string name="auth_password_field">Введите пароль</string>
 
 </resources>

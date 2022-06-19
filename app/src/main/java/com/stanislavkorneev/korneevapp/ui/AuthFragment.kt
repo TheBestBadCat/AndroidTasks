@@ -34,8 +34,8 @@ class AuthFragment: Fragment() {
 
         binding.registrationButton.setOnClickListener {
             viewModel.registration(
-                login = binding.login.text.toString(),
-                password = binding.password.text.toString()
+                login = binding.loginEditText.text.toString(),
+                password = binding.passwordEditText.text.toString()
             )
 
             viewModel.registrationSuccess.observe(viewLifecycleOwner) { registrationSuccess ->
@@ -47,8 +47,8 @@ class AuthFragment: Fragment() {
 
         binding.loginButton.setOnClickListener {
             viewModel.login(
-                login = binding.login.text.toString(),
-                password = binding.password.text.toString()
+                login = binding.loginEditText.text.toString(),
+                password = binding.passwordEditText.text.toString()
             )
 
             viewModel.token.observe(viewLifecycleOwner) { token ->

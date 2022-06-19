@@ -55,9 +55,9 @@ class LoanInfoFragment: Fragment() {
             binding.percentText.text = loan.percent.toString()
             binding.periodText.text = loan.period.toString()
             binding.stateText.text = when (loan.state) {
-                LoanState.APPROVED -> "Одобрена"
-                LoanState.REJECTED -> "Отклонена"
-                LoanState.REGISTERED -> "Зарегистрирована"
+                LoanState.APPROVED -> "Одобрен"
+                LoanState.REJECTED -> "Отклонен"
+                LoanState.REGISTERED -> "Зарегистрирован"
             }
         }
 

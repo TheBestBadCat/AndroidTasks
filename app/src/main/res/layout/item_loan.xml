@@ -6,28 +6,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
 
     <TextView
-        android:id="@+id/text_loan_amount"
+        android:id="@+id/simple_loan_text"
+        style="@style/loanInfoTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        tools:text="Сумма: 100000$" />
+        tools:text="Сумма: 100000₽ срок 20 дней" />
 
     <TextView
-        android:id="@+id/text_loan_percent"
+        android:id="@+id/loan_percent_text"
+        style="@style/loanInfoTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        tools:text="Процентная ставка: 9.8%" />
+        tools:text="Процентная ставка 9.8%"/>
 
     <TextView
-        android:id="@+id/text_loan_status"
+        android:id="@+id/loan_status_text"
+        style="@style/loanInfoTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         tools:text="Статус: Одобрен" />
 
+    <TextView
+        android:id="@+id/loan_date_text"
+        style="@style/loanInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Дата: 18.06.2022" />
+
+    <ImageView
+        android:id="@+id/loan_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/loan_list_divider_shape"
+        android:contentDescription="@string/loan_list_divider"
+      />
 
 </LinearLayout>
