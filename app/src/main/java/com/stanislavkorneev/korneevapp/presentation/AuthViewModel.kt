@@ -5,15 +5,15 @@ import com.stanislavkorneev.korneevapp.domain.usecase.LoginUseCase
 import com.stanislavkorneev.korneevapp.domain.usecase.RegistrationUseCase
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
-
-    private val registrationUseCase = RegistrationUseCase()
-    private val loginUseCase = LoginUseCase()
+class AuthViewModel @Inject constructor(
+    private val registrationUseCase: RegistrationUseCase,
+    private val loginUseCase: LoginUseCase
+) : ViewModel() {
 
     lateinit var token: LiveData<String>
     lateinit var registrationSuccess: LiveData<Boolean>
-
     private val _exception =  MutableLiveData<String>()
     val exception: LiveData<String> = _exception
 

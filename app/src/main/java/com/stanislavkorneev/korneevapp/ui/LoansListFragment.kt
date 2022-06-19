@@ -1,18 +1,24 @@
 package com.stanislavkorneev.korneevapp.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoansListBinding
-import com.stanislavkorneev.korneevapp.prefs
+import com.stanislavkorneev.korneevapp.app.prefs
 import com.stanislavkorneev.korneevapp.presentation.LoansListAdapter
 import com.stanislavkorneev.korneevapp.presentation.LoansListViewModel
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class LoansListFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoansListBinding
+    private var _binding: FragmentLoansListBinding? = null
+    private val binding get() = _binding!!
+
     private val adapter = LoansListAdapter { id ->
         prefs.loanIdPreferences = id
         (context as MainActivity).changeFragment(LoanInfoFragment.newInstance())
@@ -22,7 +28,14 @@ class LoansListFragment : Fragment() {
         fun newInstance() = LoansListFragment()
     }
 
-    private val viewModel: LoansListViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel by viewModels<LoansListViewModel> { viewModelFactory }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,8 +43,13 @@ class LoansListFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         setHasOptionsMenu(true)
-        binding = FragmentLoansListBinding.inflate(inflater, container, false)
+        _binding = FragmentLoansListBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

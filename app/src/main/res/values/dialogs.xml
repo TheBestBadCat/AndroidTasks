@@ -9,7 +9,7 @@
 
     <string name="login_success_title">Инструкция</string>
     <string name="login_success_message">
-        Пожалуйста, ознакомтесь с возможностями приложения перед началом работы
+        Пожалуйста, ознакомьтесь с возможностями приложения перед началом работы
     </string>
     <string name="dialog_positive_button">Далее</string>
 
@@ -22,9 +22,9 @@
     <string name="loan_guide_title">Оформление займа</string>
     <string name="loan_guide_message">
         Создание заявки на займ состоит из 3-х шагов:\n\n
-        Ознакомления с текущими условиями займа: максимальная сумма, процентная ставка и срок\n\n
-        Заполнение данных о заемщике: имя, фамилия и номер телефона\n\n
-        Отправка заявки\n\n
+        - Ознакомления с текущими условиями предоставления займа: максимальная сумма, процентная ставка и срок\n\n
+        - Заполнения данных о заемщике: имя, фамилия и номер телефона\n\n
+        - Отправки заявки\n\n
         Для успешного оформления займа необходимо корректно заполнить все данные
     </string>
 
@@ -34,13 +34,13 @@
     </string>
 
     <string name="profile_logout_title">Смена пользователя</string>
-    <string name="profile_logout_message">Вы действительно хотите сменить текущего пользователя и перейти к процедуре авторазиации?</string>
+    <string name="profile_logout_message">Вы действительно хотите сменить текущего пользователя и перейти к процедуре авторизации?</string>
     <string name="profile_logout_positive_button">Да</string>
     <string name="profile_logout_negative_button">Нет</string>
 
     <string name="create_loan_success_title">Займ успешно оформлен</string>
     <string name="create_loan_success_message">
-        Перейдите на главный экран для просмотра истории и подробной информации об уже созданных займах или оформите новый</string>
+        Перейдите на главный экран для просмотра истории и подробной информации об уже созданных займах</string>
 
     <string name="input_exception_title">Недостаточно данных</string>
     <string name="input_exception_message">

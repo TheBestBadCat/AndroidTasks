@@ -28,5 +28,4 @@ interface LoanApi {
 
     @GET("/loans/conditions")
     suspend fun getLoanConditions(@Header("Authorization") token: String): LoanConditions
-
 }

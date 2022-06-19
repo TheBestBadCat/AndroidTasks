@@ -1,29 +1,41 @@
 package com.stanislavkorneev.korneevapp.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoanCreateBinding
 import com.stanislavkorneev.korneevapp.domain.entities.LoanConditions
-import com.stanislavkorneev.korneevapp.prefs
+import com.stanislavkorneev.korneevapp.app.prefs
 import com.stanislavkorneev.korneevapp.presentation.LoanCreateViewModel
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class LoanCreateFragment: Fragment() {
 
-    private lateinit var binding: FragmentLoanCreateBinding
+    private var _binding: FragmentLoanCreateBinding? = null
+    private val binding get() = _binding!!
     private lateinit var loanConditions: LoanConditions
 
     companion object {
         fun newInstance() = LoanCreateFragment()
     }
 
-    private val viewModel: LoanCreateViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel by viewModels<LoanCreateViewModel> { viewModelFactory }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         setHasOptionsMenu(true)
-        binding = FragmentLoanCreateBinding.inflate(inflater, container, false)
+        _binding = FragmentLoanCreateBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,6 +43,11 @@ class LoanCreateFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
         initExceptionObserver()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

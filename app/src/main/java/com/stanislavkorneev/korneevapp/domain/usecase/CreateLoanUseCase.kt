@@ -1,12 +1,13 @@
 package com.stanislavkorneev.korneevapp.domain.usecase
 
 import com.stanislavkorneev.korneevapp.data.repository.LoanRepositoryImpl
+import com.stanislavkorneev.korneevapp.di.FragmentScope
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.entities.LoanRequest
+import javax.inject.Inject
 
-class CreateLoanUseCase {
-
-    private val repository = LoanRepositoryImpl()
+@FragmentScope
+class CreateLoanUseCase @Inject constructor(private val repository: LoanRepositoryImpl) {
 
     suspend operator fun invoke(
         token: String,

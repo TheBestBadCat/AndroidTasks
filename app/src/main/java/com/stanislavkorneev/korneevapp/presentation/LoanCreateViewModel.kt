@@ -1,21 +1,19 @@
 package com.stanislavkorneev.korneevapp.presentation
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.entities.LoanConditions
 import com.stanislavkorneev.korneevapp.domain.usecase.CreateLoanUseCase
 import com.stanislavkorneev.korneevapp.domain.usecase.GetLoanConditionsUseCase
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
+import javax.inject.Inject
 
-class LoanCreateViewModel(application: Application): AndroidViewModel(application) {
+class LoanCreateViewModel @Inject constructor(
+    private val getLoanConditionsUseCase: GetLoanConditionsUseCase,
+    private val createLoanUseCase: CreateLoanUseCase
+): ViewModel() {
 
-    private val getLoanConditionsUseCase = GetLoanConditionsUseCase()
-    private val createLoanUseCase = CreateLoanUseCase()
     private val _exception =  MutableLiveData<String>()
     val exception: LiveData<String> = _exception
     lateinit var conditions: LiveData<LoanConditions>

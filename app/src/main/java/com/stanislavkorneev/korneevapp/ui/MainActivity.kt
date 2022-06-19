@@ -4,25 +4,35 @@ import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.ActivityMainBinding
-import com.stanislavkorneev.korneevapp.prefs
-import com.stanislavkorneev.korneevapp.presentation.AuthViewModel
+import com.stanislavkorneev.korneevapp.app.prefs
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Any>
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel : AuthViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         setHomeFragment()
         initNavigationBarListener()
     }
+
+    override fun androidInjector(): AndroidInjector<Any> =
+        fragmentInjector
+
 
     fun changeFragment(fragment: Fragment){
         supportFragmentManager

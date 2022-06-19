@@ -1,11 +1,12 @@
 package com.stanislavkorneev.korneevapp.domain.usecase
 
 import com.stanislavkorneev.korneevapp.data.repository.LoanRepositoryImpl
+import com.stanislavkorneev.korneevapp.di.FragmentScope
 import com.stanislavkorneev.korneevapp.domain.entities.Auth
+import javax.inject.Inject
 
-class LoginUseCase {
-
-    private val repository = LoanRepositoryImpl()
+@FragmentScope
+class LoginUseCase @Inject constructor(private val repository: LoanRepositoryImpl) {
 
     suspend operator fun invoke(login: String, password: String): String {
         return if (isValidUserData(login, password))

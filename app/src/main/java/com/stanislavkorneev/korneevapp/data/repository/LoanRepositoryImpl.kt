@@ -4,28 +4,33 @@ import com.stanislavkorneev.korneevapp.data.api.ApiService
 import com.stanislavkorneev.korneevapp.data.api.LoanApi
 import com.stanislavkorneev.korneevapp.domain.entities.*
 import com.stanislavkorneev.korneevapp.domain.repository.LoanRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LoanRepositoryImpl : LoanRepository {
+@Singleton
+class LoanRepositoryImpl @Inject constructor(
+    private val api: LoanApi
+) : LoanRepository {
 
-    private val api = ApiService()
-    private val retrofit = api.retrofit.create(LoanApi::class.java)
+   /* private val api = ApiService()
+    private val retrofit = api.retrofit.create(LoanApi::class.java)*/
 
     override suspend fun login(auth: Auth): String =
-        retrofit.login(auth)
+        api.login(auth)
 
     override suspend fun registration(auth: Auth): User =
-        retrofit.registration(auth)
+        api.registration(auth)
 
     override suspend fun createLoan(token: String, request: LoanRequest): Loan =
-        retrofit.createLoan(token, request)
+        api.createLoan(token, request)
 
     override suspend fun getLoan(token: String, id: Int): Loan =
-        retrofit.getLoan(token, id)
+        api.getLoan(token, id)
 
     override suspend fun getLoansList(token: String): List<Loan> =
-        retrofit.getLoansList(token)
+        api.getLoansList(token)
 
     override suspend fun getLoanConditions(token: String): LoanConditions =
-        retrofit.getLoanConditions(token)
+        api.getLoanConditions(token)
 
 }

@@ -7,12 +7,13 @@ import androidx.lifecycle.liveData
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.usecase.GetLoanInfoUseCase
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class LoanInfoViewModel: ViewModel() {
+class LoanInfoViewModel @Inject constructor(
+    private val getLoanInfoUseCase: GetLoanInfoUseCase
+): ViewModel() {
 
-    private val getLoanInfoUseCase = GetLoanInfoUseCase()
     lateinit var loan: LiveData<Loan>
-
     private val _exception =  MutableLiveData<String>()
     val exception: LiveData<String> = _exception
 

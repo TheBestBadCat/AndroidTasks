@@ -8,12 +8,13 @@ import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.usecase.GetLoansListUseCase
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
+import javax.inject.Inject
 
-class LoansListViewModel: ViewModel() {
+class LoansListViewModel @Inject constructor(
+    private val getLoansListUseCase: GetLoansListUseCase
+): ViewModel() {
 
-    private val getLoansListUseCase = GetLoansListUseCase()
     lateinit var loansList: LiveData<List<Loan>>
-
     private val _exception =  MutableLiveData<String>()
     val exception: LiveData<String> = _exception
 

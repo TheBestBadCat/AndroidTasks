@@ -8,7 +8,8 @@ import com.stanislavkorneev.korneevapp.databinding.FragmentProfileBinding
 
 class ProfileFragment: Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         fun newInstance() = ProfileFragment()
@@ -16,7 +17,7 @@ class ProfileFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         setHasOptionsMenu(true)
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,6 +26,11 @@ class ProfileFragment: Fragment() {
         binding.startGuideButton.setOnClickListener {
             (context as MainActivity).showLoginSuccessDialog()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

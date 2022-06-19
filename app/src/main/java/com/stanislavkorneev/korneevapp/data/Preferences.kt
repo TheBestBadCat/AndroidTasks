@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp
+package com.stanislavkorneev.korneevapp.data
 
 import android.content.Context
 import android.content.SharedPreferences
