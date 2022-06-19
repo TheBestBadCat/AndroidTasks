@@ -42,18 +42,18 @@ class MainActivity : AppCompatActivity() {
 
     fun showRegistrationSuccessDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Регистрация прошла успешно")
-            .setMessage("Осуществите вход с данными указанными при регистрации для дальнейшей работы с приложением")
-            .setNeutralButton("Ок") { dialog, id ->
+            .setTitle(R.string.registration_success_title)
+            .setMessage(R.string.registration_success_message)
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
                 dialog.dismiss()
             }.show()
     }
 
     fun showCreateLoanSuccessDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Заявка успешно оформлена")
-            .setMessage("Ознакомтесь с инструкцией и выберите предпочтительный способ получения займа")
-            .setNeutralButton("Посмотреть инструкцию") { dialog, id ->
+            .setTitle(R.string.create_loan_success_title)
+            .setMessage(R.string.create_loan_success_message)
+            .setNeutralButton(R.string.create_loan_success_button) { dialog, id ->
                 dialog.dismiss()
                 changeFragment(LoanInfoFragment.newInstance())
             }.show()
@@ -61,36 +61,36 @@ class MainActivity : AppCompatActivity() {
 
     private fun showInputExceptionDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Недостаточно данных")
-            .setMessage("Корректно заполните все поля и попробуйте отправить запрос повторно")
-            .setNeutralButton("Ок") { dialog, id ->
+            .setTitle(R.string.input_exception_title)
+            .setMessage(R.string.input_exception_message)
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
                 dialog.dismiss()
             }.show()
     }
 
     private fun showUnknownHostExceptionDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Отсутствует подключение к интернету")
-            .setMessage("Проверьте соединение и попробуйте отправить запрос повторно")
-            .setNeutralButton("Ок") { dialog, id ->
+            .setTitle(R.string.host_exception_title)
+            .setMessage(R.string.host_exception_message)
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
                 dialog.dismiss()
             }.show()
     }
 
     private fun showHttpExceptionDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Ошибка при работе с сервером")
-            .setMessage("Проверьте корректность введенных данных или попробуйте повторить запрос позже")
-            .setNeutralButton("Ок") { dialog, id ->
+            .setTitle(R.string.http_exception_title)
+            .setMessage(R.string.host_exception_message)
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
                 dialog.dismiss()
             }.show()
     }
 
     private fun showUnknownExceptionDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Неизвестная ошибка")
-            .setMessage("На данный момент причина возникновения данной ошибки неизвестна. Спасибо, за понимание.")
-            .setNeutralButton("Ок") { dialog, id ->
+            .setTitle(R.string.unknown_exception_title)
+            .setMessage(R.string.input_exception_message)
+            .setNeutralButton(R.string.dialog_neutral_button) { dialog, id ->
                 dialog.dismiss()
             }.show()
     }
@@ -103,30 +103,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigationBarListener() {
-        binding.bottomNavigation.setOnItemSelectedListener {
-            when(it.itemId) {
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.home -> {
                     setHomeFragment()
                     return@setOnItemSelectedListener true
                 }
                 R.id.loan -> {
-                    if (!isLoginUser()) {
-                        changeFragment(LoanCreateFragment.newInstance())
-                        return@setOnItemSelectedListener true
-                    } else {
+                    if (isLoginUser()) {
                         return@setOnItemSelectedListener false
                     }
+                    changeFragment(LoanCreateFragment.newInstance())
+                    return@setOnItemSelectedListener true
                 }
-                /*R.id.profile -> {
-                    if (!isLoginUser()) {
-                        changeFragment(ProfileFragment.newInstance())
-                        return@setOnItemSelectedListener true
-                    } else {
+                R.id.profile -> {
+                    if (isLoginUser()) {
                         return@setOnItemSelectedListener false
                     }
-                }*/
-                else -> return@setOnItemSelectedListener false
+                    //changeFragment(ProfileFragment.newInstance())
+                    return@setOnItemSelectedListener true
+                }
             }
+            return@setOnItemSelectedListener false
         }
     }
 

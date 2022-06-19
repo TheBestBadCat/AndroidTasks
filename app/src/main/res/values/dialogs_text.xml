@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_neutral_button">Ок</string>
+
+    <string name="registration_success_title">Регистрация прошла успешно</string>
+    <string name="registration_success_message">
+        Осуществите вход с данными указанными при регистрации для дальнейшей работы с приложением
+    </string>
+
+    <string name="create_loan_success_title">Заявка успешно оформлена</string>
+    <string name="create_loan_success_message">
+        Ознакомтесь с инструкцией и выберите предпочтительный способ получения займа</string>
+    <string name="create_loan_success_button">Посмотреть инструкцию</string>
+
+    <string name="input_exception_title">Недостаточно данных</string>
+    <string name="input_exception_message">
+        Корректно заполните все поля и попробуйте отправить запрос повторно</string>
+
+    <string name="host_exception_title">Отсутствует подключение к интернету</string>
+    <string name="host_exception_message">
+        Проверьте соединение и попробуйте отправить запрос повторно</string>
+
+    <string name="http_exception_title">Ошибка при работе с сервером</string>
+    <string name="http_exception_message">
+        Проверьте корректность введенных данных или попробуйте повторить запрос позже</string>
+
+    <string name="unknown_exception_title">Неизвестная ошибка</string>
+    <string name="unknown_exception_message">
+        Извините, но на данный момент причина возникновения данной ошибки неизвестна</string>
+
+
+</resources>

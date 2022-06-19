@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.stanislavkorneev.korneevapp.databinding.ItemLoanBinding
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
+import com.stanislavkorneev.korneevapp.domain.entities.LoanState
 
 class LoansListAdapter(private val loanOnClick: (Int) -> Unit) :
     RecyclerView.Adapter<LoansListAdapter.LoanViewHolder>() {
@@ -34,7 +35,11 @@ class LoansListAdapter(private val loanOnClick: (Int) -> Unit) :
 
             binding.textLoanAmount.text = item.amount.toString()
             binding.textLoanPercent.text = item.percent.toString()
-            binding.textLoanStatus.text = item.state.toString()
+            binding.textLoanStatus.text = when (item.state) {
+                LoanState.APPROVED -> "Одобрена"
+                LoanState.REJECTED -> "Отклонена"
+                LoanState.REGISTERED -> "Зарегистрирована"
+            }
 
             binding.loanCard.setOnClickListener {
                 loanOnClick(item.id)
