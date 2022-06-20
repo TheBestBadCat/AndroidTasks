@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.ui
+package com.stanislavkorneev.korneevapp.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,8 @@ import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoanCreateBinding
 import com.stanislavkorneev.korneevapp.domain.entities.LoanConditions
 import com.stanislavkorneev.korneevapp.app.prefs
-import com.stanislavkorneev.korneevapp.presentation.LoanCreateViewModel
+import com.stanislavkorneev.korneevapp.presentation.viewModels.LoanCreateViewModel
+import com.stanislavkorneev.korneevapp.ui.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -67,21 +68,11 @@ class LoanCreateFragment: Fragment() {
 
         viewModel.conditions.observe(viewLifecycleOwner) { conditions ->
             loanConditions = conditions
-            initConditions()
+            loadConditions()
         }
 
         binding.createNewLoanButton.setOnClickListener {
-            prefs.tokenPreferences?.let { token ->
-                viewModel.createLoan(
-                    token = token,
-                    amount = loanConditions.maxAmount,
-                    percent = loanConditions.percent,
-                    period = loanConditions.period,
-                    firstName = binding.firstNameEditText.text.toString(),
-                    lastName = binding.lastNameEditText.text.toString(),
-                    phoneNumber = binding.phoneNumberEditText.text.toString()
-                )
-            }
+            createLoan()
 
             viewModel.loan.observe(viewLifecycleOwner) {
                 (context as MainActivity).showCreateLoanSuccessDialog()
@@ -96,12 +87,26 @@ class LoanCreateFragment: Fragment() {
         }
     }
 
-    private fun initConditions() {
+    private fun loadConditions() {
         val amount = "${loanConditions.maxAmount} ₽"
         val percent = "${loanConditions.percent} %"
         val period = "${loanConditions.period} дней"
         binding.amountLoanConditionText.text = amount
         binding.percentLoanConditionText.text = percent
         binding.periodLoanConditionText.text = period
+    }
+
+    private fun createLoan() {
+        prefs.tokenPreferences?.let { token ->
+            viewModel.createLoan(
+                token = token,
+                amount = loanConditions.maxAmount,
+                percent = loanConditions.percent,
+                period = loanConditions.period,
+                firstName = binding.firstNameEditText.text.toString(),
+                lastName = binding.lastNameEditText.text.toString(),
+                phoneNumber = binding.phoneNumberEditText.text.toString()
+            )
+        }
     }
 }

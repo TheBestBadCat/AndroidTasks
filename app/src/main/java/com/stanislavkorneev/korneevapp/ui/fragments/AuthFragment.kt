@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.ui
+package com.stanislavkorneev.korneevapp.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.stanislavkorneev.korneevapp.databinding.FragmentAuthBinding
-import com.stanislavkorneev.korneevapp.presentation.AuthViewModel
+import com.stanislavkorneev.korneevapp.presentation.viewModels.AuthViewModel
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.app.prefs
+import com.stanislavkorneev.korneevapp.ui.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

@@ -1,10 +1,10 @@
 package com.stanislavkorneev.korneevapp.di.modules
 
 import com.stanislavkorneev.korneevapp.di.FragmentScope
-import com.stanislavkorneev.korneevapp.ui.AuthFragment
-import com.stanislavkorneev.korneevapp.ui.LoanCreateFragment
-import com.stanislavkorneev.korneevapp.ui.LoanInfoFragment
-import com.stanislavkorneev.korneevapp.ui.LoansListFragment
+import com.stanislavkorneev.korneevapp.ui.fragments.AuthFragment
+import com.stanislavkorneev.korneevapp.ui.fragments.LoanCreateFragment
+import com.stanislavkorneev.korneevapp.ui.fragments.LoanInfoFragment
+import com.stanislavkorneev.korneevapp.ui.fragments.LoansListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

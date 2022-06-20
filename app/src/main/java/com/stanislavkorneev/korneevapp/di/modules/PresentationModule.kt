@@ -3,7 +3,7 @@ package com.stanislavkorneev.korneevapp.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.di.ViewModelKey
-import com.stanislavkorneev.korneevapp.presentation.*
+import com.stanislavkorneev.korneevapp.presentation.viewModels.*
 import dagger.Module
 import dagger.Binds
 import dagger.multibindings.IntoMap

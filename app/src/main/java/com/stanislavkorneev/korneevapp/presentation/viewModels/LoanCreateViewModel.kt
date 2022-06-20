@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.presentation
+package com.stanislavkorneev.korneevapp.presentation.viewModels
 
 import androidx.lifecycle.*
 import com.stanislavkorneev.korneevapp.domain.entities.Loan

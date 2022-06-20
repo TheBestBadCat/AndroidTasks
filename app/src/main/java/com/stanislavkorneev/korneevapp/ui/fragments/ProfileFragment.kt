@@ -1,10 +1,11 @@
-package com.stanislavkorneev.korneevapp.ui
+package com.stanislavkorneev.korneevapp.ui.fragments
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentProfileBinding
+import com.stanislavkorneev.korneevapp.ui.MainActivity
 
 class ProfileFragment: Fragment() {
 
@@ -23,9 +24,7 @@ class ProfileFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.startGuideButton.setOnClickListener {
-            (context as MainActivity).showLoginSuccessDialog()
-        }
+        initListeners()
     }
 
     override fun onDestroyView() {
@@ -41,5 +40,19 @@ class ProfileFragment: Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         (context as MainActivity).showLogoutDialog()
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun initListeners() {
+        binding.startGuideButton.setOnClickListener {
+            (context as MainActivity).showLoginSuccessDialog()
+        }
+
+        binding.startCashGuideButton.setOnClickListener {
+            (context as MainActivity).showGetLoanCashGuide()
+        }
+
+        binding.startCardGuideButton.setOnClickListener {
+            (context as MainActivity).showGetLoanCardGuide()
+        }
     }
 }

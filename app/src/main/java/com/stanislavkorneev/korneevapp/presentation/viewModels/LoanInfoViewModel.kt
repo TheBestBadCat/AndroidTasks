@@ -1,30 +1,28 @@
-package com.stanislavkorneev.korneevapp.presentation
+package com.stanislavkorneev.korneevapp.presentation.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
-import com.stanislavkorneev.korneevapp.domain.usecase.GetLoansListUseCase
+import com.stanislavkorneev.korneevapp.domain.usecase.GetLoanInfoUseCase
 import kotlinx.coroutines.Dispatchers
-import java.lang.Exception
 import javax.inject.Inject
 
-class LoansListViewModel @Inject constructor(
-    private val getLoansListUseCase: GetLoansListUseCase
+class LoanInfoViewModel @Inject constructor(
+    private val getLoanInfoUseCase: GetLoanInfoUseCase
 ): ViewModel() {
 
-    lateinit var loansList: LiveData<List<Loan>>
+    lateinit var loan: LiveData<Loan>
     private val _exception =  MutableLiveData<String>()
     val exception: LiveData<String> = _exception
 
-    fun getLoansList(token: String) {
-        loansList = liveData (Dispatchers.IO) {
+    fun getLoanInfo(token: String, id: Int) {
+        loan = liveData (Dispatchers.IO) {
             try {
-                emit(getLoansListUseCase(token))
+                emit(getLoanInfoUseCase(token, id))
                 _exception.postValue("")
             } catch (e: Exception) {
-                emit(emptyList())
                 _exception.postValue(e.javaClass.simpleName)
             }
         }

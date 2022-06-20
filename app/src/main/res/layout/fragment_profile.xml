@@ -18,18 +18,25 @@
             android:text="@string/profile_title"
             android:textAlignment="center" />
 
-        <TextView
-            android:id="@+id/guide_text"
-            style="@style/loanInfoTextView"
+        <Button
+            android:id="@+id/start_cash_guide_button"
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/how_get_loan_guide" />
+            android:text="@string/profile_cash_guide_button" />
+
+        <Button
+            android:id="@+id/start_card_guide_button"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_card_guide_button" />
 
         <Button
             android:id="@+id/start_guide_button"
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/profile_button" />
+            android:text="@string/profile_main_guide_button" />
     </LinearLayout>
 </ScrollView>

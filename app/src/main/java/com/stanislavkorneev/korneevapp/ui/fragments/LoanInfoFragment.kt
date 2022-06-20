@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.ui
+package com.stanislavkorneev.korneevapp.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,8 @@ import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoanInfoBinding
 import com.stanislavkorneev.korneevapp.domain.entities.LoanState
 import com.stanislavkorneev.korneevapp.app.prefs
-import com.stanislavkorneev.korneevapp.presentation.LoanInfoViewModel
+import com.stanislavkorneev.korneevapp.presentation.viewModels.LoanInfoViewModel
+import com.stanislavkorneev.korneevapp.ui.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -59,10 +60,27 @@ class LoanInfoFragment: Fragment() {
     }
 
     private fun initListeners() {
+        binding.startCashGuideButton.setOnClickListener {
+            (context as MainActivity).showGetLoanCashGuide()
+        }
+
+        binding.startCardGuideButton.setOnClickListener {
+            (context as MainActivity).showGetLoanCardGuide()
+        }
+
         prefs.tokenPreferences?.let { token ->
             viewModel.getLoanInfo(token, prefs.loanIdPreferences)
         }
 
+        loanObserver()
+
+        viewModel.exception.observe(viewLifecycleOwner) { exceptionSimpleName ->
+            if (exceptionSimpleName.isNotEmpty())
+                (context as MainActivity).showExceptionMessage(exceptionSimpleName)
+        }
+    }
+
+    private fun loanObserver() {
         viewModel.loan.observe(viewLifecycleOwner) { loan ->
             val amount = "${loan.amount}₽"
             val percent = "${loan.percent}%"
@@ -79,11 +97,6 @@ class LoanInfoFragment: Fragment() {
                 LoanState.REJECTED -> "Отклонен"
                 LoanState.REGISTERED -> "Зарегистрирован"
             }
-        }
-
-        viewModel.exception.observe(viewLifecycleOwner) { exceptionSimpleName ->
-            if (exceptionSimpleName.isNotEmpty())
-                (context as MainActivity).showExceptionMessage(exceptionSimpleName)
         }
     }
 }

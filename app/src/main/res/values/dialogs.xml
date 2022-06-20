@@ -34,13 +34,15 @@
     </string>
 
     <string name="profile_logout_title">Смена пользователя</string>
-    <string name="profile_logout_message">Вы действительно хотите сменить текущего пользователя и перейти к процедуре авторизации?</string>
+    <string name="profile_logout_message">
+        Вы действительно хотите сменить текущего пользователя и перейти к процедуре авторизации?
+    </string>
     <string name="profile_logout_positive_button">Да</string>
     <string name="profile_logout_negative_button">Нет</string>
 
     <string name="create_loan_success_title">Займ успешно оформлен</string>
     <string name="create_loan_success_message">
-        Перейдите на главный экран для просмотра истории и подробной информации об уже созданных займах</string>
+        На главном экране доступен просмотр истории и подробной информации о созданных займах</string>
 
     <string name="input_exception_title">Недостаточно данных</string>
     <string name="input_exception_message">
@@ -57,5 +59,23 @@
     <string name="unknown_exception_title">Неизвестная ошибка</string>
     <string name="unknown_exception_message">
         Извините, но на данный момент причина возникновения данной ошибки неизвестна</string>
+
+    <string name="plug_dialog_title">Функция недоступна</string>
+    <string name="plug_dialog_message">
+        На текущий момент данная функция недоступна.\n\nСпасибо, за понимание.</string>
+
+    <string name="get_loan_cash_title">Получение наличными</string>
+    <string name="get_loan_cash_message">
+        Для получения суммы займа обратитесь в одно из отделений банков-партнеров.
+        При себе необходимо иметь паспорт и телефон для получения кода подверждения операции.\n\n
+        Далее доступен просмотр информации о ближайших отделениях и их местоположении
+    </string>
+
+    <string name="get_loan_card_title">Получение на карту</string>
+    <string name="get_loan_card_message">
+        Для получения суммы займа необходимо заполнить электронное заявление с указанием номера карты и телефона, к которому она привязана.
+        После одобрения заявления, вам придет подтверждение операции по SMS и будет проведено зачисление денежные средств.\n\n
+        Далее доступна возможность заполнения электронного заявления
+    </string>
 
 </resources>

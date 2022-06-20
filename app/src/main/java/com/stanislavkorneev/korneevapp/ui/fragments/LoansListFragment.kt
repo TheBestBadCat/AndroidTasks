@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.ui
+package com.stanislavkorneev.korneevapp.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,8 @@ import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoansListBinding
 import com.stanislavkorneev.korneevapp.app.prefs
 import com.stanislavkorneev.korneevapp.presentation.LoansListAdapter
-import com.stanislavkorneev.korneevapp.presentation.LoansListViewModel
+import com.stanislavkorneev.korneevapp.presentation.viewModels.LoansListViewModel
+import com.stanislavkorneev.korneevapp.ui.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
