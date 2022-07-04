@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.presentation
+package com.stanislavkorneev.korneevapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

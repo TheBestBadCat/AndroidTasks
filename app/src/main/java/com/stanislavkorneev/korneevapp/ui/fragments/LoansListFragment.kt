@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.FragmentLoansListBinding
 import com.stanislavkorneev.korneevapp.app.prefs
-import com.stanislavkorneev.korneevapp.presentation.LoansListAdapter
+import com.stanislavkorneev.korneevapp.ui.LoansListAdapter
 import com.stanislavkorneev.korneevapp.presentation.viewModels.LoansListViewModel
 import com.stanislavkorneev.korneevapp.ui.MainActivity
 import dagger.android.support.AndroidSupportInjection
