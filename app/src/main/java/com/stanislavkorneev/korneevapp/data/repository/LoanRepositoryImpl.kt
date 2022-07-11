@@ -1,6 +1,5 @@
 package com.stanislavkorneev.korneevapp.data.repository
 
-import com.stanislavkorneev.korneevapp.data.api.ApiService
 import com.stanislavkorneev.korneevapp.data.api.LoanApi
 import com.stanislavkorneev.korneevapp.domain.entities.*
 import com.stanislavkorneev.korneevapp.domain.repository.LoanRepository
@@ -11,9 +10,6 @@ import javax.inject.Singleton
 class LoanRepositoryImpl @Inject constructor(
     private val api: LoanApi
 ) : LoanRepository {
-
-   /* private val api = ApiService()
-    private val retrofit = api.retrofit.create(LoanApi::class.java)*/
 
     override suspend fun login(auth: Auth): String =
         api.login(auth)

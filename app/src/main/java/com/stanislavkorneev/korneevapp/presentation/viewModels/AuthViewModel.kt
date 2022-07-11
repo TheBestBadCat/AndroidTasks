@@ -3,13 +3,15 @@ package com.stanislavkorneev.korneevapp.presentation.viewModels
 import androidx.lifecycle.*
 import com.stanislavkorneev.korneevapp.domain.usecase.LoginUseCase
 import com.stanislavkorneev.korneevapp.domain.usecase.RegistrationUseCase
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import javax.inject.Inject
 
 class AuthViewModel @Inject constructor(
     private val registrationUseCase: RegistrationUseCase,
-    private val loginUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
+    private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     lateinit var token: LiveData<String>
@@ -18,7 +20,7 @@ class AuthViewModel @Inject constructor(
     val exception: LiveData<String> = _exception
 
     fun login(login: String, password: String) {
-        token = liveData (Dispatchers.IO) {
+        token = liveData (coroutineDispatcher) {
             try {
                 emit(loginUseCase(login, password))
             } catch (e: Exception) {

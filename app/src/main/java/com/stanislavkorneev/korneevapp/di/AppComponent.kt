@@ -12,6 +12,7 @@ import javax.inject.Singleton
     ActivityModule::class,
     AppModule::class,
     DataModule::class,
+    DispatchersModule::class,
     DomainModule::class,
     PresentationModule::class,
     AndroidSupportInjectionModule::class

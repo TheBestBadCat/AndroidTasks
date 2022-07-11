@@ -3,7 +3,6 @@ package com.stanislavkorneev.korneevapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.stanislavkorneev.korneevapp.presentation.DialogManager
 import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.ActivityMainBinding
 import com.stanislavkorneev.korneevapp.app.prefs

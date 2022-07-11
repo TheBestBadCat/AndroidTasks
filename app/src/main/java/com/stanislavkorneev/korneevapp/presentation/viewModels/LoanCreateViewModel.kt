@@ -5,13 +5,15 @@ import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.entities.LoanConditions
 import com.stanislavkorneev.korneevapp.domain.usecase.CreateLoanUseCase
 import com.stanislavkorneev.korneevapp.domain.usecase.GetLoanConditionsUseCase
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import javax.inject.Inject
 
 class LoanCreateViewModel @Inject constructor(
     private val getLoanConditionsUseCase: GetLoanConditionsUseCase,
-    private val createLoanUseCase: CreateLoanUseCase
+    private val createLoanUseCase: CreateLoanUseCase,
+    private val coroutineDispatcher: CoroutineDispatcher
 ): ViewModel() {
 
     private val _exception =  MutableLiveData<String>()
@@ -20,7 +22,7 @@ class LoanCreateViewModel @Inject constructor(
     lateinit var loan: LiveData<Loan>
 
     fun getLoanConditions(token: String) {
-        conditions = liveData (Dispatchers.IO) {
+        conditions = liveData (coroutineDispatcher) {
             try {
                 emit(getLoanConditionsUseCase(token))
             } catch (e: Exception) {

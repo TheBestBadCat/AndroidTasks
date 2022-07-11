@@ -6,12 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.usecase.GetLoansListUseCase
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import javax.inject.Inject
 
 class LoansListViewModel @Inject constructor(
-    private val getLoansListUseCase: GetLoansListUseCase
+    private val getLoansListUseCase: GetLoansListUseCase,
+    private val coroutineDispatcher: CoroutineDispatcher
 ): ViewModel() {
 
     lateinit var loansList: LiveData<List<Loan>>
@@ -19,7 +21,7 @@ class LoansListViewModel @Inject constructor(
     val exception: LiveData<String> = _exception
 
     fun getLoansList(token: String) {
-        loansList = liveData (Dispatchers.IO) {
+        loansList = liveData (coroutineDispatcher) {
             try {
                 emit(getLoansListUseCase(token))
                 _exception.postValue("")

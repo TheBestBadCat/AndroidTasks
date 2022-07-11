@@ -1,4 +1,4 @@
-package com.stanislavkorneev.korneevapp.presentation
+package com.stanislavkorneev.korneevapp.ui
 
 import android.app.AlertDialog
 import android.content.Context
