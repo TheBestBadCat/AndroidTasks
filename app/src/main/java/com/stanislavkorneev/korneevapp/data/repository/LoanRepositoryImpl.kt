@@ -7,15 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LoanRepositoryImpl @Inject constructor(
-    private val api: LoanApi
-) : LoanRepository {
-
-    override suspend fun login(auth: Auth): String =
-        api.login(auth)
-
-    override suspend fun registration(auth: Auth): User =
-        api.registration(auth)
+class LoanRepositoryImpl @Inject constructor(private val api: LoanApi) : LoanRepository {
 
     override suspend fun createLoan(token: String, request: LoanRequest): Loan =
         api.createLoan(token, request)
@@ -28,5 +20,4 @@ class LoanRepositoryImpl @Inject constructor(
 
     override suspend fun getLoanConditions(token: String): LoanConditions =
         api.getLoanConditions(token)
-
 }

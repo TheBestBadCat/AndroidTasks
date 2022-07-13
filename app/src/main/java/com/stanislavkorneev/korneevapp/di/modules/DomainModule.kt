@@ -1,40 +1,21 @@
 package com.stanislavkorneev.korneevapp.di.modules
 
+import com.stanislavkorneev.korneevapp.data.repository.AuthRepositoryImpl
 import com.stanislavkorneev.korneevapp.data.repository.LoanRepositoryImpl
-import com.stanislavkorneev.korneevapp.domain.usecase.*
+import com.stanislavkorneev.korneevapp.domain.repository.AuthRepository
+import com.stanislavkorneev.korneevapp.domain.repository.LoanRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
+import javax.inject.Singleton
 
 @Module
-class DomainModule {
+interface DomainModule {
 
-    @Provides
-    fun provideCreateLoanUseCase(repositoryImpl: LoanRepositoryImpl) : CreateLoanUseCase {
-        return CreateLoanUseCase(repositoryImpl)
-    }
+    @Singleton
+    @Binds
+    fun bindAuthRepository(repositoryImpl: AuthRepositoryImpl) : AuthRepository
 
-    @Provides
-    fun provideGetLoanConditionsUseCase(repositoryImpl: LoanRepositoryImpl) : GetLoanConditionsUseCase {
-        return GetLoanConditionsUseCase(repositoryImpl)
-    }
-
-    @Provides
-    fun provideGetLoanInfoUseCase(repositoryImpl: LoanRepositoryImpl) : GetLoanInfoUseCase {
-        return GetLoanInfoUseCase(repositoryImpl)
-    }
-
-    @Provides
-    fun provideGetLoansListUseCase(repositoryImpl: LoanRepositoryImpl) : GetLoansListUseCase {
-        return GetLoansListUseCase(repositoryImpl)
-    }
-
-    @Provides
-    fun provideLoginUseCase(repositoryImpl: LoanRepositoryImpl) : LoginUseCase {
-        return LoginUseCase(repositoryImpl)
-    }
-
-    @Provides
-    fun provideRegistrationUseCase(repositoryImpl: LoanRepositoryImpl) : RegistrationUseCase {
-        return RegistrationUseCase(repositoryImpl)
-    }
+    @Singleton
+    @Binds
+    fun bindLoanRepository(repository: LoanRepositoryImpl) : LoanRepository
 }
