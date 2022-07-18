@@ -21,13 +21,20 @@
 
     <string name="loan_info_title">Информация о займе:</string>
     <string name="loan_info_amount">Сумма:</string>
-    <string name="loan_info_percent">Процентная ставка:</string>
+    <string name="loan_info_percentages">Процентная ставка:</string>
     <string name="loan_info_period">Срок:</string>
     <string name="loan_info_date">Дата:</string>
     <string name="loan_info_phone">Номер телефона:</string>
     <string name="loan_info_first_name">Имя:</string>
     <string name="loan_info_last_name">Фамилия:</string>
     <string name="loan_info_state">Статус:</string>
+    <string name="loan_info_rub">₽</string>
+    <string name="loan_info_days">дней</string>
+    <string name="loan_info_percentage_sign">%</string>
+
+    <string name="loan_approved_state">Одобрен</string>
+    <string name="loan_rejected_state">Отклонен</string>
+    <string name="loan_registered_state">Зарегистрирован</string>
 
     <string name="auth_title">Войдите или зарегистрируйтесь:</string>
     <string name="auth_registration_button_text">Регистрация</string>

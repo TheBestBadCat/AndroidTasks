@@ -3,6 +3,7 @@ package com.stanislavkorneev.korneevapp.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.stanislavkorneev.korneevapp.R
 import com.stanislavkorneev.korneevapp.databinding.ItemLoanBinding
 import com.stanislavkorneev.korneevapp.domain.entities.Loan
 import com.stanislavkorneev.korneevapp.domain.entities.LoanState
@@ -31,21 +32,21 @@ class LoansListAdapter(private val loanOnClick: (Int) -> Unit) :
     inner class LoanViewHolder(private val binding: ItemLoanBinding, private val loanOnClick: (Int) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Loan) {
-            val simpleLoanInfo = "Сумма: ${item.amount}₽ срок: ${item.period} дней"
-            val percentInfo = "Процентная ставка: ${item.percent}%"
-            val dateLoanInfo = "Дата: ${item.date}"
-            binding.simpleLoanText.text = simpleLoanInfo
-            binding.loanPercentText.text = percentInfo
-            binding.loanDateText.text = dateLoanInfo
-            binding.loanStatusText.text = when (item.state) {
-                LoanState.APPROVED -> "Статус: Одобрен"
-                LoanState.REJECTED -> "Статус: Отклонен"
-                LoanState.REGISTERED -> "Статус: Зарегистрирован"
+        fun bind(loanListItem: Loan) {
+            with(binding) {
+                simpleLoanAmount.text = loanListItem.amount.toString()
+                simpleLoanDays.text = loanListItem.period.toString()
+                loanPercent.text = loanListItem.percent.toString()
+                loanDateText.text = loanListItem.date
+                loanStatusText.text = when (loanListItem.state) {
+                    LoanState.APPROVED -> LoanState.APPROVED.description
+                    LoanState.REJECTED -> LoanState.REJECTED.description
+                    LoanState.REGISTERED -> LoanState.REGISTERED.description
+                }
             }
 
             binding.loanCard.setOnClickListener {
-                loanOnClick(item.id)
+                loanOnClick(loanListItem.id)
             }
         }
     }

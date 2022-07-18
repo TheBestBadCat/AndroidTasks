@@ -108,6 +108,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/currency_text"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_rub" />
+
         </TableRow>
 
         <TableRow
@@ -120,13 +127,20 @@
                 style="@style/loanInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/loan_info_percent" />
+                android:text="@string/loan_info_percentages" />
 
             <TextView
                 android:id="@+id/percent_text"
                 style="@style/loanInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/percent_sign"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_percentage_sign" />
 
         </TableRow>
 
@@ -147,6 +161,13 @@
                 style="@style/loanInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/period_unit"
+                style="@style/loanInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_info_days" />
 
         </TableRow>
 
