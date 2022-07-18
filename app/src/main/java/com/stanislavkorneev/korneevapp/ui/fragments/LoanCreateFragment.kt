@@ -88,12 +88,9 @@ class LoanCreateFragment: Fragment() {
     }
 
     private fun loadConditions() {
-        val amount = "${loanConditions.maxAmount} ₽"
-        val percent = "${loanConditions.percent} %"
-        val period = "${loanConditions.period} дней"
-        binding.amountLoanConditionText.text = amount
-        binding.percentLoanConditionText.text = percent
-        binding.periodLoanConditionText.text = period
+        binding.amountLoanConditionText.text = loanConditions.maxAmount.toString()
+        binding.percentLoanConditionText.text = loanConditions.percent.toString()
+        binding.periodLoanConditionText.text = loanConditions.period.toString()
     }
 
     private fun createLoan() {

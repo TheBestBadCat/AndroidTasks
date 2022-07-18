@@ -12,8 +12,9 @@ data class Loan(
     val state: LoanState
 )
 
-enum class LoanState {
-    APPROVED,
-    REGISTERED,
-    REJECTED;
+//TODO fix hardcoded text
+enum class LoanState(val description: String) {
+    APPROVED("Одобрен"),
+    REGISTERED("Зарегистрирован"),
+    REJECTED("Отклонен");
 }

@@ -82,20 +82,19 @@ class LoanInfoFragment: Fragment() {
 
     private fun loanObserver() {
         viewModel.loan.observe(viewLifecycleOwner) { loan ->
-            val amount = "${loan.amount}₽"
-            val percent = "${loan.percent}%"
-            val period = "${loan.period} дней"
-            binding.firstNameText.text = loan.firstName
-            binding.lastNameText.text = loan.lastName
-            binding.phoneText.text = loan.phoneNumber
-            binding.dateText.text = loan.date
-            binding.amountText.text = amount
-            binding.percentText.text = percent
-            binding.periodText.text = period
-            binding.stateText.text = when (loan.state) {
-                LoanState.APPROVED -> "Одобрен"
-                LoanState.REJECTED -> "Отклонен"
-                LoanState.REGISTERED -> "Зарегистрирован"
+            with (binding) {
+                firstNameText.text = loan.firstName
+                lastNameText.text = loan.lastName
+                phoneText.text = loan.phoneNumber
+                dateText.text = loan.date
+                amountText.text = loan.amount.toString()
+                percentText.text = loan.percent.toString()
+                periodText.text = loan.period.toString()
+                stateText.text = when (loan.state) {
+                    LoanState.APPROVED -> LoanState.APPROVED.description
+                    LoanState.REJECTED -> LoanState.REJECTED.description
+                    LoanState.REGISTERED -> LoanState.REGISTERED.description
+                }
             }
         }
     }
